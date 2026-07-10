@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AEGIS PRO v2 — Create Account</title>
+  <meta name="description" content="Create a new account for AegisPro."/>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; script-src 'self' 'unsafe-inline'; connect-src 'self';" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="auth-page">
+
+<!-- Reused 3D Background -->
+<canvas id="bg-canvas"></canvas>
+<div id="particles"></div>
+
+<div class="auth-container">
+  <div class="gc auth-card">
+    <div class="auth-header">
+      <h1 class="auth-title">Initialize Access</h1>
+      <p class="auth-sub">Create a new secure terminal account.</p>
+    </div>
+
+    <form id="register-form" class="auth-form">
+      <div class="auth-group">
+        <label for="reg-name">Full Name</label>
+        <input type="text" id="reg-name" class="gi" placeholder="Alex Mercer" required>
+      </div>
+
+      <div class="auth-group">
+        <label for="reg-email">Email Address</label>
+        <input type="email" id="reg-email" class="gi" placeholder="engineer@aegis.local" required autocomplete="email">
+      </div>
+
+      <div class="auth-group">
+        <label for="reg-role">Role/Specialization</label>
+        <select id="reg-role" class="gi" style="background: rgba(0, 0, 0, 0.2); border: 1px solid var(--border); color: var(--on-surface); cursor: pointer;" required>
+          <option value="" disabled selected style="background: #0f0f24; color: var(--on-surface-3);">Select your role</option>
+          <option value="Cloud Security Engineer" style="background: #0f0f24; color: var(--on-surface);">Cloud Security Engineer</option>
+          <option value="DevSecOps Engineer" style="background: #0f0f24; color: var(--on-surface);">DevSecOps Engineer</option>
+          <option value="Security Analyst" style="background: #0f0f24; color: var(--on-surface);">Security Analyst</option>
+          <option value="Penetration Tester" style="background: #0f0f24; color: var(--on-surface);">Penetration Tester</option>
+          <option value="Student / Learner" style="background: #0f0f24; color: var(--on-surface);">Student / Learner</option>
+        </select>
+      </div>
+
+      <div class="auth-group">
+        <label for="reg-question">Security Question</label>
+        <select id="reg-question" class="gi" style="background: rgba(0, 0, 0, 0.2); border: 1px solid var(--border); color: var(--on-surface); cursor: pointer;" required>
+          <option value="" disabled selected style="background: #0f0f24; color: var(--on-surface-3);">Select a security question</option>
+          <option value="What was your first hacking handle?" style="background: #0f0f24; color: var(--on-surface);">What was your first hacking handle?</option>
+          <option value="What is your favorite encryption algorithm?" style="background: #0f0f24; color: var(--on-surface);">What is your favorite encryption algorithm?</option>
+          <option value="What is your first security certification?" style="background: #0f0f24; color: var(--on-surface);">What is your first security certification?</option>
+          <option value="What was the name of your first computer?" style="background: #0f0f24; color: var(--on-surface);">What was the name of your first computer?</option>
+        </select>
+      </div>
+
+      <div class="auth-group">
+        <label for="reg-answer">Security Answer</label>
+        <input type="text" id="reg-answer" class="gi" placeholder="Your Answer" required>
+      </div>
+
+      <div class="auth-group">
+        <label for="reg-password">Password (Min 6 Characters)</label>
+        <input type="password" id="reg-password" class="gi" placeholder="••••••••••••" required autocomplete="new-password">
+      </div>
+      
+      <button type="submit" class="auth-btn calc-btn" style="background: var(--grad-primary); margin-top: 10px;">Create Account</button>
+    </form>
+    
+    <div class="auth-footer" style="margin-top: 20px;">
+      <p>Already have access? <a href="index.html" class="auth-link">Return to Login</a></p>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+<script type="module" src="firebase-auth.js"></script>
+</body>
+</html>
